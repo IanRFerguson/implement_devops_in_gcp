@@ -1,12 +1,11 @@
 ### Question 2 ###
 
-
 # Create an emtpy repo in CSR
 gcloud source repos create sample-app
 
 # Clone the sample application
 gcloud source repos clone sample-app \
---project=$PROJECT_ID
+    --project=$PROJECT_ID
 
 # Copy template files from GCS to local repo
 gsutil cp -r gs://spls/gsp330/sample-app/* ~/sample-app
@@ -18,6 +17,9 @@ for file in sample-app/cloudbuild-dev.yaml sample-app/cloudbuild.yaml; do
 done
 
 
+###
+
+
 # First commit to master
 cd sample-app
 git init
@@ -26,5 +28,4 @@ git commit -m "let's rock"
 git push origin master
 
 # First commit to dev
-git checkout -b dev
-git push origin dev
+git checkout -b dev && git push origin dev
